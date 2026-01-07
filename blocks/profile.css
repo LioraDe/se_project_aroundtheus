@@ -28,6 +28,7 @@
   font-weight: 500;
   grid-area: title;
   margin: 0;
+  font-family: "Inter", woff2, sans-serif;
 }
 .profile__description {
   font-size: 18px;
@@ -35,6 +36,7 @@
   font-weight: 400;
   grid-area: description;
   margin: 0;
+  font-family: "Inter", woff2, sans-serif;
 }
 .profile__image {
   height: 120px;
