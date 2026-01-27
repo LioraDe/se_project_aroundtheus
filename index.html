@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,13 +6,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0 , maximum-scale=1.0"
     />
+    <link rel="icon" href="/favicon.ico" rel=" icon" />
+
     <title>Around the U.S</title>
     <link href="./pages/index.css" rel="stylesheet" />
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
-        <img src="./images/logo.png" alt="Around the U.S logo" />
+        <img src="./images/logo.svg" alt="Around the U.S logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
@@ -23,7 +25,7 @@
           />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Costeau</h1>
-            <button class="profile__edit-button"></button>
+            <button class="profile__edit-button" type="button"></button>
             <p class="profile__description">Explorer</p>
           </div>
           <button class="profile__add-button"></button>
@@ -31,42 +33,66 @@
         <section class="cards page__section">
           <ul class="cards__list">
             <li class="card">
-              <img src="./images/yosemite-valley.svg" class="card__image" />
+              <img
+                src="./images/yosemite-valley.svg"
+                class="card__image"
+                alt="Yosemite valley"
+              />
               <div class="card__description">
                 Yosemite Valley
-                <button class="card__like-button"></button>
+                <button class="card__like-button" type="button"></button>
               </div>
             </li>
             <li class="card">
-              <img src="./images/lake-louise.svg" class="card__image" />
+              <img
+                src="./images/lake-louise.svg"
+                class="card__image"
+                alt="Lake Louise"
+              />
               <div class="card__description">
                 Lake Louise
                 <button class="card__like-button"></button>
               </div>
             </li>
             <li class="card">
-              <img src="./images/bald-mountains.svg" class="card__image" />
+              <img
+                src="./images/bald-mountains.svg"
+                class="card__image"
+                alt="Bald Mountains"
+              />
               <div class="card__description">
                 Bald Mountains
                 <button class="card__like-button"></button>
               </div>
             </li>
             <li class="card">
-              <img src="./images/latemar.svg" class="card__image" />
+              <img
+                src="./images/latemar.svg"
+                class="card__image"
+                alt="Latemar"
+              />
               <div class="card__description">
                 Latemar
                 <button class="card__like-button"></button>
               </div>
             </li>
             <li class="card">
-              <img src="./images/vanoise-national-park.svg" class="card__image" />
+              <img
+                src="./images/vanoise-national-park.svg"
+                class="card__image"
+                alt="Vanoise national park"
+              />
               <div class="card__description">
                 Vanoise National
                 <button class="card__like-button"></button>
               </div>
             </li>
             <li class="card">
-              <img src="./images/lago-di-braies.svg" class="card__image" />
+              <img
+                src="./images/lago-di-braies.svg"
+                class="card__image"
+                alt="Lago di braies"
+              />
               <div class="card__description">
                 Lago di Braies
                 <button class="card__like-button"></button>
@@ -75,8 +101,9 @@
           </ul>
         </section>
       </main>
-      <footer>
-         <p class="footer__copyright">&copy; 2022 Around The U.S.</p>
+      <footer class="footer page__section">
+        <p class="footer__copyright">&copy; 2022 Around The U.S.</p>
       </footer>
+    </div>
   </body>
 </html>
