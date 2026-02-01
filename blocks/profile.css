@@ -20,7 +20,7 @@
 }
 .profile__edit-button:hover {
   opacity: 60%;
-  cursor: url(../images/cursor.svg);
+  cursor: pointer;
 }
 .profile__add-button {
   background: transparent url(../images/add-icon.svg) center no-repeat;
@@ -32,9 +32,7 @@
 }
 .profile__add-button:hover {
   opacity: 60%;
-  cursor:
-    url(../images/Cursor.svg) 1 2,
-    pointer;
+  cursor: pointer;
 }
 .profile__title {
   font-size: 42px;
