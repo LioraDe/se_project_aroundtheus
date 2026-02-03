@@ -12,3 +12,9 @@ Responsive design techniques
 
 Store photos, likes, and profile data in a database
 Allow users to comment on photos
+
+## Deployment
+
+this webpase is deployed to Github Pages
+
+- [deployment Link] (https://liorade.github.io/se_project_aroundtheus)

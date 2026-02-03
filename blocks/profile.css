@@ -41,7 +41,12 @@
   grid-area: title;
   margin: 0;
   font-family: "Inter", Arial, Helvetica, sans-serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 737px;
 }
+
 .profile__description {
   font-size: 18px;
   line-height: 22px;
