@@ -17,4 +17,5 @@ Allow users to comment on photos
 
 this webpase is deployed to Github Pages
 
-- [deployment Link] (https://liorade.github.io/se_project_aroundtheus)
+- deployment Link (https://liorade.github.io/se_project_aroundtheus)
+- Video presentation https://drive.google.com/file/d/1bdIxcBWzqzmtlgHN_COND1Rt2cAiMtyv/view?usp=sharing
