@@ -112,6 +112,51 @@
         <p class="footer__copyright">&copy; 2022 Around The U.S.</p>
       </footer>
     </div>
+    <div class="modal">
+      <div class="modal__container">
+        <button class="modal__close"></button>
+        <p class="modal_heading">Edit Profile</p>
+        <form action="modal_form">
+          <label class="modal__label">
+            <input
+              class="modal__form-input"
+              id="profile-title-input"
+              placeholder="Name"
+              type="text"
+              name="title"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="modal__error" id="profile-title-input_error"> </span>
+          </label>
+          <label class="modal__label">
+            <input
+              class="modal__form-input"
+              id="profile-description-input"
+              placeholder="Description"
+              type="text"
+              name="description"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span
+              class="modal__error"
+              id="profile-description-input_error"
+            ></span>
+          </label>
+          <button
+            class="modal__button modal__button_disabled"
+            type="submit"
+            disabled
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>
