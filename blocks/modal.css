@@ -42,7 +42,7 @@
   cursor: pointer;
 }
 
-.modal_heading {
+.modal__heading {
   width: 330px;
   height: 23px;
   font-family: "Inter", Arial, sans-serif;
