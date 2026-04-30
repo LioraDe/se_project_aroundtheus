@@ -9,10 +9,10 @@
   z-index: 999;
   display: flex;
   padding: 0 19px;
-  /*display: none;*/
+  visibility: hidden;
 }
 .modal__opened {
-  display: flex;
+  visibility: visible;
 }
 .modal__container {
   position: absolute;
