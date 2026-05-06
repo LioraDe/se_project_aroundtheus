@@ -9,7 +9,6 @@
   z-index: 999;
   display: flex;
   padding: 0 19px;
-  visibility: hidden;
 }
 .modal__opened {
   visibility: visible;
@@ -74,7 +73,7 @@
   top: 60px;
   padding: 0;
 }
-.modal__form-input {
+.modal__input {
   font-size: 14px;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
