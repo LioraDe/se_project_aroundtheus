@@ -53,6 +53,12 @@ profileEditCloseButton.addEventListener("click", () => {
   closePopop();
 });
 profileEditForm.addEventListener("submit", (e) => {
+  console.log(
+    profileEditButton,
+    profileEditModal,
+    profileEditCloseButton,
+    profileEditForm,
+  );
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
