@@ -39,24 +39,24 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input",
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-
+/* Functions*/
 function closePopop() {
   profileEditModal.classList.remove("modal__opened");
 }
-profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal__opened");
-});
-
-profileEditCloseButton.addEventListener("click", () => {
-  closePopop();
-});
-profileEditForm.addEventListener("submit", (e) => {
+function handleProfileEditSubmit(e) {
   e.preventDefault();
 
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
 
   closePopop();
+}
+/* Event Handlers*/
+profileEditButton.addEventListener("click", () => {
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
+  profileEditModal.classList.add("modal__opened");
 });
+/* Event Listeners*/
+profileEditCloseButton.addEventListener("click", closePopop);
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
