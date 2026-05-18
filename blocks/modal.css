@@ -54,6 +54,7 @@
   color: #000;
   margin: 14px 0 18px 32px;
   box-sizing: border-box;
+  font-size: 18px;
 }
 
 .modal__button {
@@ -74,6 +75,7 @@
   left: 30px;
   top: 60px;
   padding: 0;
+  font-size: 14px;
 }
 .modal__form {
   position: relative;
@@ -92,4 +94,9 @@
   left: 30px;
   top: 25px;
   padding: 0;
+}
+@media screen and (max-width: 320px) {
+  .modal__container {
+    padding: 0;
+  }
 }
