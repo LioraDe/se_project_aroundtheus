@@ -99,4 +99,14 @@
   .modal__container {
     padding: 0;
   }
+  .modal__close {
+    top: -10px;
+    right: -5px;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 100%;
+  }
 }
