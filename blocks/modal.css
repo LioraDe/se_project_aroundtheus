@@ -48,6 +48,7 @@
   flex-direction: column;
 }
 .modal__close {
+  /**
   background-image: url("../images/Close-Icon.svg");
   border: none;
   position: absolute;
@@ -59,6 +60,19 @@
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
+  **/
+  background-image: url("../images/Close-Icon.svg");
+  border: none;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  z-index: 1000;
 }
 
 .modal__heading {
