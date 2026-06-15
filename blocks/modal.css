@@ -16,11 +16,29 @@
   visibility: visible;
 }
 .modal__container {
-  position: absolute;
+  /**
+  position: relative;
   top: 195px;
   left: 425px;
   width: 430px;
   height: 330px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 12px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  **/
+  position: relative; /* Changed from absolute */
+  margin: auto; /* Centers the modal */
+  top: auto;
+  left: auto;
+  width: 430px;
+  max-width: 90%; /* Prevents overflow on small screens */
+  height: auto; /* Better than fixed height */
+  min-height: 330px;
   background: #fff;
   border: 1px solid #000;
   border-radius: 12px;
@@ -44,6 +62,7 @@
 }
 
 .modal__heading {
+  /**
   width: 330px;
   height: 23px;
   font-family: "Inter", Arial, sans-serif;
@@ -55,9 +74,13 @@
   margin: 14px 0 18px 32px;
   box-sizing: border-box;
   font-size: 18px;
+  **/
+  width: 100%; /* ← Add this */
+  margin-left: 0; /* ← Reset margin */
 }
 
 .modal__button {
+  /**
   background-color: #000;
   color: white;
   border: none;
@@ -76,11 +99,31 @@
   top: 60px;
   padding: 0;
   font-size: 14px;
+  **/
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  text-decoration: none;
+  text-align: center;
+  width: 100%; /* ← Changed from 358px */
+  height: 50px;
+  position: relative;
+  display: inline-block;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.87px;
+  left: 0; /* ← Reset left */
+  top: 60px;
+  padding: 0;
+  box-sizing: border-box;
 }
 .modal__form {
   position: relative;
 }
 .modal__input {
+  /**
   font-size: 14px;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
@@ -94,9 +137,43 @@
   left: 30px;
   top: 25px;
   padding: 0;
+  **/
+  font-size: 14px;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  border-style: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  width: 100%; /* ← Changed from 358px */
+  height: 30px;
+  position: relative;
+  left: 0; /* ← Reset left */
+  top: 25px;
+  padding: 0;
+  box-sizing: border-box;
 }
 @media screen and (max-width: 320px) {
   .modal__container {
+    width: 282px;
+    height: auto;
+    min-height: 322px;
+    border-radius: 10px;
+    padding: 25px 22px;
+    margin: auto;
+  }
+
+  .modal__close {
+    top: -36px;
+    right: -36px;
+    width: 30px;
+    height: 30px;
+  }
+  /**
+  .modal__container {
+    width: 282px;
+    height: 322px;
+    border-radius: 10px;
     padding: 0;
   }
   .modal__close {
@@ -108,5 +185,5 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 100%;
-  }
+  }**/
 }
