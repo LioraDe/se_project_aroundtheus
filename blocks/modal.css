@@ -74,7 +74,7 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 21.87px;
-  left: 0; /* ← Changed from 30px to 0 */
+  left: 0;
   top: 60px;
   padding: 0;
   font-size: 14px;
@@ -82,7 +82,7 @@
 .modal__form {
   display: flex;
   flex-direction: column;
-  gap: 30px; /* ← Add space between inputs */
+  gap: 30px;
   width: 100%;
 }
 .modal__input {
