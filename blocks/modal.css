@@ -48,26 +48,13 @@
   flex-direction: column;
 }
 .modal__close {
-  /**
   background-image: url("../images/Close-Icon.svg");
   border: none;
   position: absolute;
-  bottom: calc(100% + 5px);
-  left: calc(100% + 5px);
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-  **/
-  background-image: url("../images/Close-Icon.svg");
-  border: none;
-  position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 40px;
-  height: 40px;
+  top: -36px;
+  right: -36px;
+  width: 30px;
+  height: 30px;
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: contain;
@@ -76,51 +63,18 @@
 }
 
 .modal__heading {
-  /**
-  width: 330px;
-  height: 23px;
-  font-family: "Inter", Arial, sans-serif;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 24px;
-  letter-spacing: 0;
-  color: #000;
-  margin: 14px 0 18px 32px;
-  box-sizing: border-box;
-  font-size: 18px;
-  **/
-  width: 100%; /* ← Add this */
-  margin-left: 0; /* ← Reset margin */
+  width: 100%;
+  margin-left: 0;
 }
 
 .modal__button {
-  /**
   background-color: #000;
   color: white;
   border: none;
   border-radius: 2px;
   text-decoration: none;
   text-align: center;
-  width: 358px;
-  height: 50.15px;
-  position: relative;
-  display: inline-block;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 21.87px;
-  left: 30px;
-  top: 60px;
-  padding: 0;
-  font-size: 14px;
-  **/
-  background-color: #000;
-  color: white;
-  border: none;
-  border-radius: 2px;
-  text-decoration: none;
-  text-align: center;
-  width: 100%; /* ← Changed from 358px */
+  width: 100%;
   height: 50px;
   position: relative;
   display: inline-block;
@@ -128,8 +82,7 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 21.87px;
-  left: 0; /* ← Reset left */
-  top: 60px;
+  left: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -137,21 +90,6 @@
   position: relative;
 }
 .modal__input {
-  /**
-  font-size: 14px;
-  font-family: "Inter", Arial, sans-serif;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  border-style: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  width: 358px;
-  height: 30px;
-  position: relative;
-  left: 30px;
-  top: 25px;
-  padding: 0;
-  **/
   font-size: 14px;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
@@ -183,21 +121,4 @@
     width: 30px;
     height: 30px;
   }
-  /**
-  .modal__container {
-    width: 282px;
-    height: 322px;
-    border-radius: 10px;
-    padding: 0;
-  }
-  .modal__close {
-    top: -10px;
-    right: -5px;
-    margin: 0;
-    width: 30px;
-    height: 30px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 100%;
-  }**/
 }
