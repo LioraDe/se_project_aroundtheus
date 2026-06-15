@@ -16,28 +16,13 @@
   visibility: visible;
 }
 .modal__container {
-  /**
   position: relative;
-  top: 195px;
-  left: 425px;
-  width: 430px;
-  height: 330px;
-  background: #fff;
-  border: 1px solid #000;
-  border-radius: 12px;
-  padding: 16px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  max-width: 90%;
-  **/
-  position: relative; /* Changed from absolute */
-  margin: auto; /* Centers the modal */
+  margin: auto;
   top: auto;
   left: auto;
   width: 430px;
-  max-width: 90%; /* Prevents overflow on small screens */
-  height: auto; /* Better than fixed height */
+  max-width: 90%;
+  height: auto;
   min-height: 330px;
   background: #fff;
   border: 1px solid #000;
@@ -55,7 +40,7 @@
   right: -36px;
   width: 30px;
   height: 30px;
-  background-color: transparent;
+  background-color: red;
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
