@@ -107,7 +107,7 @@
     height: 322px;
     padding: 25px 22px;
     border-radius: 10px;
-    margin: auto;
+    margin: 0 auto;
     transform: none;
   }
   .modal {
