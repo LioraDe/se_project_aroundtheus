@@ -18,9 +18,11 @@
 
 /* Desktop */
 .modal__container {
-  position: absolute;
-  top: 195px;
-  left: 425px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   width: 430px;
   height: 330px;
   background: #fff;
@@ -100,6 +102,9 @@
     padding: 25px 22px;
     border-radius: 10px;
     margin: auto;
+    position: relative;
+    top: auto;
+    left: auto;
   }
 
   .modal__heading {
