@@ -100,14 +100,14 @@
 /* Mobile */
 @media screen and (max-width: 320px) {
   .modal__container {
+    position: relative;
+    top: 0;
+    left: 0;
     width: 282px;
     height: 322px;
     padding: 25px 22px;
     border-radius: 10px;
     margin: auto;
-    position: relative;
-    top: auto;
-    left: auto;
   }
 
   .modal__heading {
