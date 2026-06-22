@@ -24,7 +24,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: none;
+  transform: translate(-50%, -50%); /* ← Correct for desktop */
 
   width: 430px;
   height: 330px;
@@ -36,7 +36,6 @@
   display: flex;
   flex-direction: column;
 }
-
 .modal__close {
   background-image: url("../images/Close-Icon.svg");
   border: none;
