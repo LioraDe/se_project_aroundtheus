@@ -92,22 +92,30 @@
   cursor: pointer;
 }
 
-/* Mobile */
 @media screen and (max-width: 320px) {
   .modal {
     padding: 0;
   }
+
   .modal__container {
-    all: unset;
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 282px;
-    height: 322px;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 282px !important;
+    height: auto !important; /* ← Changed from fixed 322px */
+    min-height: 322px;
     padding: 25px 22px;
     border-radius: 10px;
-    margin: 0 auto;
-    transform: none;
+    margin: 0 auto !important;
+  }
+
+  .modal__close {
+    width: 26px !important;
+    height: 26px !important;
+    top: -40px !important; /* ← Moved slightly higher */
+    right: -36px !important;
+    filter: brightness(0) invert(1);
   }
 
   .modal__heading {
@@ -116,31 +124,26 @@
     font-size: 18px;
     font-weight: 900;
     line-height: 100%;
-    margin: 0 0 18px 0;
+    margin: 0 0 24px 0; /* ← Reduced top margin */
     color: #000;
   }
 
-  .modal__close {
-    width: 26px;
-    height: 26px;
-    top: -36px;
-    right: -36px;
+  .modal__form {
+    margin: 0;
+    padding: 0;
   }
 
   .modal__input {
     width: 238px;
     height: 27px;
     font-size: 14px;
-    left: 0;
-    top: 0;
-    margin-bottom: 5px;
+    margin: 0 0 5px 0;
   }
 
   .modal__button {
     width: 238px;
     height: 46px;
     font-size: 14px;
-    left: 0;
-    top: 18px;
+    margin: 18px 0 0 0; /* ← Better spacing */
   }
 }
