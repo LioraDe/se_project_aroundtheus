@@ -87,3 +87,37 @@ initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
 });
+// ======================  CARD MODAL ======================
+
+const addCardButton = document.querySelector(".profile__add-button");
+const addCardModal = document.querySelector("#add-card-modal");
+const addCardCloseButton = addCardModal.querySelector(".modal__close");
+const addCardForm = addCardModal.querySelector(".modal__form");
+const cardTitleInput = addCardModal.querySelector("#card-title-input");
+const cardLinkInput = addCardModal.querySelector("#card-link-input");
+
+// Open Add Card Modal
+addCardButton.addEventListener("click", () => {
+  addCardModal.classList.add("modal_opened");
+});
+
+// Close Add Card Modal
+addCardCloseButton.addEventListener("click", () => {
+  addCardModal.classList.remove("modal_opened");
+});
+
+// Handle Add Card Form Submit
+addCardForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const newCardData = {
+    name: cardTitleInput.value,
+    link: cardLinkInput.value,
+  };
+
+  const cardElement = getCardElement(newCardData);
+  cardListEl.prepend(cardElement);
+
+  addCardForm.reset();
+  addCardModal.classList.remove("modal_opened");
+});
