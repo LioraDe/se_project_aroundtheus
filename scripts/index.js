@@ -182,3 +182,30 @@ document.addEventListener("keydown", (evt) => {
     }
   }
 });
+// Close modal when clicking on the overlay (the dark background)
+function setOverlayCloseListeners() {
+  const modals = document.querySelectorAll(".modal");
+
+  modals.forEach((modal) => {
+    modal.addEventListener("click", (evt) => {
+      if (evt.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
+}
+
+// One time function call at the end of the script or in an init function
+setOverlayCloseListeners();
+// Close modal with Escape key
+function handleEscapeKey(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+}
+
+// Add this event listener once
+document.addEventListener("keydown", handleEscapeKey);
