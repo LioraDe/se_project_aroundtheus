@@ -52,11 +52,34 @@
 .modal__close:hover {
   opacity: 0.6;
 }
-/* close preview modal */
+/* Preview Modal Container */
+.modal_type_preview {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* The inner content wrapper */
+.modal_type_preview .modal__content_type_preview {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The image */
+.modal_type_preview .modal__image {
+  max-width: 75vw;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Close button */
 .modal_type_preview .modal__close {
   position: absolute;
-  top: -40px;
-  right: -40px;
+  top: -45px;
+  right: -45px;
   width: 40px;
   height: 40px;
   background-image: url("../images/close-icon.svg");
@@ -68,6 +91,7 @@
   padding: 0;
   z-index: 10;
 }
+
 .modal__heading {
   width: 330px;
   height: 23px;
