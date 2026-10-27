@@ -1,10 +1,7 @@
-/* Modal styles */
+/* ======================
+   Base Modal
+   ====================== */
 .modal {
-  visibility: hidden;
-  opacity: 0;
-  transition:
-    visibility 0s 0.3s,
-    opacity 0.3s ease;
   position: fixed;
   top: 0;
   left: 0;
@@ -15,6 +12,12 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    visibility 0s 0.3s,
+    opacity 0.3s ease;
 }
 
 .modal_opened {
@@ -24,7 +27,10 @@
     visibility 0s,
     opacity 0.3s ease;
 }
-/* Desktop */
+
+/* ======================
+   Modal Container (Forms)
+   ====================== */
 .modal__container {
   position: relative;
   width: 430px;
@@ -36,17 +42,22 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+
+  transform: scale(0.9);
+  opacity: 0;
   transition:
     transform 0.3s ease,
     opacity 0.3s ease;
-  transform: scale(0.9);
-  opacity: 0;
-  /* Remove margin: auto */
 }
+
 .modal_opened .modal__container {
   transform: scale(1);
   opacity: 1;
 }
+
+/* ======================
+   Close Button
+   ====================== */
 .modal__close {
   position: absolute;
   top: -40px;
@@ -67,23 +78,27 @@
 .modal__close:hover {
   opacity: 0.6;
 }
-/* Preview Modal Container */
+
+/* ======================
+   Preview Modal
+   ====================== */
 .modal_type_preview {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal__content_type_preview {
+  transform: scale(0.9);
+  opacity: 0;
   transition:
     transform 0.3s ease,
     opacity 0.3s ease;
-  transform: scale(0.9);
-  opacity: 0;
 }
+
 .modal_opened .modal__content_type_preview {
   transform: scale(1);
   opacity: 1;
 }
-/* The image */
+
 .modal_type_preview .modal__image {
   max-width: 75vw;
   max-height: 75vh;
@@ -93,33 +108,24 @@
   display: block;
 }
 
-/* Close button */
 .modal_type_preview .modal__close {
-  position: absolute;
   top: -45px;
   right: -45px;
   width: 40px;
   height: 40px;
-  background-image: url("../images/close-icon.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
 }
 
+/* ======================
+   Form Elements
+   ====================== */
 .modal__heading {
   width: 330px;
-  height: 23px;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 900;
   font-size: 24px;
   line-height: 100%;
   color: #000;
   margin: 34px 0 24px 36px;
-  box-sizing: border-box;
 }
 
 .modal__form {
@@ -137,7 +143,6 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   margin: 30px 0 0 36px;
   padding: 0;
-  box-sizing: border-box;
 }
 
 .modal__button {
@@ -146,25 +151,19 @@
   border: none;
   border-radius: 2px;
   width: 358px;
-  height: 50.15px;
+  height: 50px;
   font-family: "Inter", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   margin: 48px 0 0 36px;
-  padding: 0;
   cursor: pointer;
 }
 
+/* ======================
+   Mobile Styles
+   ====================== */
 @media screen and (max-width: 630px) {
-  .modal {
-    padding: 0;
-  }
-
   .modal__container {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
     width: 282px;
     height: auto;
     min-height: 322px;
@@ -183,26 +182,14 @@
 
   .modal__heading {
     width: 238px;
-    height: 22px;
     font-size: 18px;
-    font-weight: 900;
-    line-height: 100%;
     margin: 0 0 24px 0;
-    color: #000;
-    margin-bottom: 75px;
-  }
-
-  .modal__form {
-    margin: 0;
-    padding: 0;
   }
 
   .modal__input {
     width: 238px;
     height: 27px;
-    font-size: 14px;
-    margin: 0 0 5px 0;
-    margin-bottom: 30px;
+    margin: 0 0 30px 0;
   }
 
   .modal__button {
@@ -210,20 +197,15 @@
     height: 46px;
     font-size: 14px;
     margin: 18px 0 0 0;
-    margin-top: 15px;
   }
 
-  /* Preview Modal - Mobile */
   .modal_type_preview .modal__close {
-    width: 26px;
-    height: 26px;
     top: -36px;
     right: 0;
-    filter: brightness(0) invert(1);
   }
 
   .modal_type_preview .modal__image {
-    max-width: vw;
+    max-width: 100%;
     max-height: 70vh;
   }
 }
