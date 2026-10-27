@@ -44,9 +44,21 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardTemplate = document.querySelector("#card__template").content;
 const cardListEl = document.querySelector(".cards__list");
 /* Functions*/
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
+function openModal(modal) {
+  modal.classList.add("modal_opened");
 }
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+}
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+}
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
 
@@ -80,7 +92,7 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
 
-  closePopup();
+  closeModal(profileEditModal);
 }
 /* Event Handlers*/
 profileEditButton.addEventListener("click", () => {
@@ -89,7 +101,9 @@ profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal_opened");
 });
 /* Event Listeners*/
-profileEditCloseButton.addEventListener("click", closePopup);
+profileEditCloseButton.addEventListener("click", () => {
+  closeModal(profileEditModal);
+});
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 initialCards.forEach((cardData) => {
@@ -136,12 +150,16 @@ const previewImage = previewModal.querySelector(".modal__image");
 const previewCaption = previewModal.querySelector(".modal__caption");
 
 // Function to open the image preview
-function openPreviewModal(imageSrc, imageAlt = "") {
+function openPreviewModal(imageSrc, imageAlt) {
+  const previewModal = document.querySelector(".modal_type_preview");
+  const previewImage = previewModal.querySelector(".modal__image");
+  const previewCaption = previewModal.querySelector(".modal__caption");
+
   previewImage.src = imageSrc;
   previewImage.alt = imageAlt;
   previewCaption.textContent = imageAlt;
 
-  previewModal.classList.add("modal_opened");
+  openModal(previewModal);
 }
 // Close preview modal
 function closePreviewModal() {
