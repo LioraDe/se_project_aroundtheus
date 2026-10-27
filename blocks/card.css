@@ -4,6 +4,7 @@
   list-style: none;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 }
 .card__image {
   width: 282px;
@@ -41,4 +42,20 @@
   white-space: nowrap;
   overflow: hidden;
   max-width: 282px;
+}
+.card__delete-button {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.card__delete-icon {
+  width: 18px;
+  height: 19.3px;
+  filter: brightness(0) invert(1); /* makes it white */
 }

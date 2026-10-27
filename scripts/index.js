@@ -41,30 +41,35 @@ const profileDescriptionInput = document.querySelector(
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 
-const cardTemplate =
-  document.querySelector("#card__template").content.firstElementChild;
+const cardTemplate = document.querySelector("#card__template").content;
 const cardListEl = document.querySelector(".cards__list");
 /* Functions*/
 function closePopup() {
   profileEditModal.classList.remove("modal_opened");
 }
 function getCardElement(cardData) {
-  /**
- * clone the template element with all its content and store it in a cardElement variable
-access the card title and image and store them in variables
-set the path to the image to the link field of the object
-set the image alt text to the name field of the object
-set the card title to the name field of the object, too
-return the ready HTML element with the filled-in data
- */
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-  cardTitleEl.textContent = cardData.name;
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+
+  // Set card data
+  cardElement.querySelector(".card__title").textContent = cardData.name;
+  const imageElement = cardElement.querySelector(".card__image");
+  imageElement.src = cardData.link;
+  imageElement.alt = cardData.name;
+
+  // Delete button
+  const deleteButton = cardElement.querySelector(".card__delete-button");
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  // Image preview click
+  imageElement.addEventListener("click", () => {
+    openPreviewModal(imageElement.src, imageElement.alt);
+  });
+
   return cardElement;
 }
+
 function handleProfileEditSubmit(e) {
   e.preventDefault();
 
@@ -120,4 +125,38 @@ addCardForm.addEventListener("submit", (e) => {
 
   addCardForm.reset();
   addCardModal.classList.remove("modal_opened");
+});
+// Preview modal elements
+const previewModal = document.querySelector(".modal_type_preview");
+const previewImage = previewModal.querySelector(".modal__image");
+const previewCaption = previewModal.querySelector(".modal__caption");
+
+// Function to open the image preview
+function openPreviewModal(imageSrc, imageAlt = "") {
+  previewImage.src = imageSrc;
+  previewImage.alt = imageAlt;
+  previewCaption.textContent = imageAlt;
+
+  previewModal.classList.add("modal_opened");
+}
+// Close preview modal
+function closePreviewModal() {
+  const previewModal = document.querySelector(".modal_type_preview");
+  previewModal.classList.remove("modal_opened");
+}
+
+// Close button
+const previewCloseButton = document.querySelector(
+  ".modal_type_preview .modal__close",
+);
+previewCloseButton.addEventListener("click", closePreviewModal);
+
+// Optional but recommended: Close with Escape key
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) {
+      openedModal.classList.remove("modal_opened");
+    }
+  }
 });
