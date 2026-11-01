@@ -145,13 +145,19 @@ function openPreviewModal(imageSrc, imageAlt) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
+
+  resetValidation(profileEditForm);
   openModal(profileEditModal);
 });
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 // Add card modal
-addCardButton.addEventListener("click", () => openModal(addCardModal));
+addCardButton.addEventListener("click", () => {
+  resetValidation(addCardForm);
+  openModal(addCardModal);
+});
+
 addCardForm.addEventListener("submit", handleAddCardSubmit);
 
 // Universal close buttons handler
@@ -252,3 +258,14 @@ const enableValidation = () => {
 };
 
 enableValidation();
+
+const resetValidation = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  const buttonElement = formElement.querySelector(".modal__button");
+
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement);
+  });
+
+  toggleButtonState(inputList, buttonElement);
+};
