@@ -63,18 +63,15 @@ function enableValidation(config) {
   });
 }
 
-function resetValidation(formElement) {
-  const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
-  const buttonElement = formElement.querySelector(".modal__button");
+function resetValidation(formElement, config) {
+  const inputList = Array.from(
+    formElement.querySelectorAll(config.inputSelector),
+  );
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
   inputList.forEach((inputElement) => {
-    hideInputError(formElement, inputElement, {
-      inputErrorClass: "modal__input_type_error",
-      errorClass: "modal__error_active",
-    });
+    hideInputError(formElement, inputElement, config);
   });
 
-  toggleButtonState(inputList, buttonElement, {
-    inactiveButtonClass: "modal__button_disabled",
-  });
+  toggleButtonState(inputList, buttonElement, config);
 }
