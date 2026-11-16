@@ -28,11 +28,9 @@ const cardLinkInput = document.querySelector("#card-link-input");
 
 const cardsList = document.querySelector(".cards__list");
 
-// Profile elements
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 
-// Preview modal elements (cached once)
 const modalImage = popupImagePreview.querySelector(".modal__image");
 const modalCaption = popupImagePreview.querySelector(".modal__caption");
 
@@ -67,10 +65,21 @@ const initialCards = [
 // ===================== Modal Functions =====================
 function openModal(popup) {
   popup.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscClose);
 }
 
 function closeModal(popup) {
   popup.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscClose);
+}
+
+function handleEscClose(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
 }
 
 // ===================== Card Functions =====================
@@ -110,6 +119,16 @@ profileAddButton.addEventListener("click", () => {
 document.querySelectorAll(".modal__close").forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => closeModal(popup));
+});
+
+// Overlay click (close when clicking outside the container)
+const modals = document.querySelectorAll(".modal");
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target === modal) {
+      closeModal(modal);
+    }
+  });
 });
 
 // Edit Profile Form
