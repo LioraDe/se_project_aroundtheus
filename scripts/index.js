@@ -10,19 +10,33 @@ const validationConfig = {
   errorClass: "modal__error_active",
 };
 
+// ===================== Cached DOM Elements =====================
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileAddButton = document.querySelector(".profile__add-button");
+
 const popupEditProfile = document.querySelector("#profile-edit-modal");
 const popupAddCard = document.querySelector("#add-card-modal");
 const popupImagePreview = document.querySelector(".modal_type_preview");
+
 const formEditProfile = document.querySelector("#edit-profile-form");
 const formAddCard = document.querySelector("#add-card-form");
+
 const nameInput = document.querySelector("#profile-title-input");
 const descriptionInput = document.querySelector("#profile-description-input");
 const cardNameInput = document.querySelector("#card-title-input");
 const cardLinkInput = document.querySelector("#card-link-input");
+
 const cardsList = document.querySelector(".cards__list");
 
+// Profile elements
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+
+// Preview modal elements (cached once)
+const modalImage = popupImagePreview.querySelector(".modal__image");
+const modalCaption = popupImagePreview.querySelector(".modal__caption");
+
+// ===================== Initial Cards =====================
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -50,33 +64,20 @@ const initialCards = [
   },
 ];
 
-const editProfileValidator = new FormValidator(
-  validationConfig,
-  formEditProfile,
-);
-const addCardValidator = new FormValidator(validationConfig, formAddCard);
-editProfileValidator.enableValidation();
-addCardValidator.enableValidation();
-
+// ===================== Modal Functions =====================
 function openModal(popup) {
-  if (!popup) return;
-  popup.style.cssText =
-    "display:flex !important; visibility:visible !important; opacity:1 !important;";
   popup.classList.add("modal_opened");
 }
 
 function closeModal(popup) {
-  if (!popup) return;
   popup.classList.remove("modal_opened");
-  popup.style.cssText = "";
 }
 
+// ===================== Card Functions =====================
 function handleCardClick(name, link) {
-  const img = popupImagePreview.querySelector(".modal__image");
-  const cap = popupImagePreview.querySelector(".modal__caption");
-  img.src = link;
-  img.alt = name;
-  cap.textContent = name;
+  modalImage.src = link;
+  modalImage.alt = name;
+  modalCaption.textContent = name;
   openModal(popupImagePreview);
 }
 
@@ -84,39 +85,61 @@ function createCard(data) {
   return new Card(data, "#card-template", handleCardClick).generateCard();
 }
 
-initialCards.forEach((data) => cardsList.append(createCard(data)));
+function renderInitialCards() {
+  initialCards.forEach((item) => {
+    const cardElement = createCard(item);
+    cardsList.append(cardElement);
+  });
+}
 
-profileEditButton?.addEventListener("click", () => {
-  nameInput.value = document.querySelector(".profile__title").textContent;
-  descriptionInput.value = document.querySelector(
-    ".profile__description",
-  ).textContent;
+// ===================== Event Listeners =====================
+profileEditButton.addEventListener("click", () => {
+  nameInput.value = profileTitle.textContent;
+  descriptionInput.value = profileDescription.textContent;
   editProfileValidator.resetValidation();
   openModal(popupEditProfile);
 });
 
-profileAddButton?.addEventListener("click", () => {
+profileAddButton.addEventListener("click", () => {
   formAddCard.reset();
   addCardValidator.resetValidation();
   openModal(popupAddCard);
 });
 
-document.querySelectorAll(".modal__close").forEach((btn) => {
-  btn.addEventListener("click", () => closeModal(btn.closest(".modal")));
+// Close buttons
+document.querySelectorAll(".modal__close").forEach((button) => {
+  const popup = button.closest(".modal");
+  button.addEventListener("click", () => closeModal(popup));
 });
 
-formEditProfile.addEventListener("submit", (e) => {
-  e.preventDefault();
-  document.querySelector(".profile__title").textContent = nameInput.value;
-  document.querySelector(".profile__description").textContent =
-    descriptionInput.value;
+// Edit Profile Form
+formEditProfile.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  profileTitle.textContent = nameInput.value;
+  profileDescription.textContent = descriptionInput.value;
   closeModal(popupEditProfile);
 });
 
-formAddCard.addEventListener("submit", (e) => {
-  e.preventDefault();
-  cardsList.prepend(
-    createCard({ name: cardNameInput.value, link: cardLinkInput.value }),
-  );
+// Add Card Form
+formAddCard.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  const newCard = createCard({
+    name: cardNameInput.value,
+    link: cardLinkInput.value,
+  });
+  cardsList.prepend(newCard);
   closeModal(popupAddCard);
 });
+
+// ===================== Validation =====================
+const editProfileValidator = new FormValidator(
+  validationConfig,
+  formEditProfile,
+);
+const addCardValidator = new FormValidator(validationConfig, formAddCard);
+
+editProfileValidator.enableValidation();
+addCardValidator.enableValidation();
+
+// ===================== Initialize =====================
+renderInitialCards();
