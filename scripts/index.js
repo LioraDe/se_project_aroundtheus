@@ -121,7 +121,7 @@ document.querySelectorAll(".modal__close").forEach((button) => {
   button.addEventListener("click", () => closeModal(popup));
 });
 
-// Overlay click (close when clicking outside the container)
+// Overlay click
 const modals = document.querySelectorAll(".modal");
 modals.forEach((modal) => {
   modal.addEventListener("mousedown", (evt) => {
